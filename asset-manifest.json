@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Redligstone/Notes/static/css/main.1a476b43.css",
+    "main.js": "/Redligstone/Notes/static/js/main.b37e6253.js",
+    "static/js/787.2e9082b0.chunk.js": "/Redligstone/Notes/static/js/787.2e9082b0.chunk.js",
+    "index.html": "/Redligstone/Notes/index.html",
+    "main.1a476b43.css.map": "/Redligstone/Notes/static/css/main.1a476b43.css.map",
+    "main.b37e6253.js.map": "/Redligstone/Notes/static/js/main.b37e6253.js.map",
+    "787.2e9082b0.chunk.js.map": "/Redligstone/Notes/static/js/787.2e9082b0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a476b43.css",
+    "static/js/main.b37e6253.js"
+  ]
+}
