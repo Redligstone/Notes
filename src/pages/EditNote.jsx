@@ -1,60 +1,78 @@
-import React, { useState } from 'react'
-import { Link,useNavigate,useParams } from 'react-router-dom'
-import {TbArrowBackUp} from 'react-icons/tb'
-import {RiDeleteBin6Line} from 'react-icons/ri'
-import useCreateDate from '../components/useCreateDate'
+import React, { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { TbArrowBackUp } from "react-icons/tb";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import useCreateDate from "../components/useCreateDate";
 
-const EditNote = ({notes, setNotes}) => {
-    const {id} = useParams()
-    const note = notes.find((item) => item.id === id)
-    const [title,setTitle] = useState(note.title)
-    const [details,setDetails] = useState(note.details)
-    const date = useCreateDate()
-    const navigate = useNavigate()
+const EditNote = ({ notes, setNotes }) => {
+  const { id } = useParams();
+  const note = notes.find((item) => item.id === id);
+  const [title, setTitle] = useState(note.title);
+  const [details, setDetails] = useState(note.details);
+  const date = useCreateDate();
+  const navigate = useNavigate();
 
-    const handleForm = (e) =>{
-        e.preventDefault()
+  const handleForm = (e) => {
+    e.preventDefault();
 
-        if(title && details){
-            const newNote = {
-                ...note,
-                title,
-                details,
-                date
-            }
-            const newNotes = notes.map((item) => {
-                if(item.id === id){
-                    item = newNote
-                }
-                return item
-            })
-            setNotes(newNotes);
+    if (title && details) {
+      const newNote = {
+        ...note,
+        title,
+        details,
+        date,
+      };
+      const newNotes = notes.map((item) => {
+        if (item.id === id) {
+          item = newNote;
         }
-        navigate('/')
+        return item;
+      });
+      setNotes(newNotes);
     }
+    navigate("/");
+  };
 
-    const handleDelete = () => {
-        if(window.confirm('Are you sure you want to delete this note?')){
-            const newNotes = notes.filter((item) => item.id !== id)
-            setNotes(newNotes)
-            navigate('/')
-        }
-        
+  const handleDelete = () => {
+    if (window.confirm("Вы уверены, что хотите удалить эту заметку?")) {
+      const newNotes = notes.filter((item) => item.id !== id);
+      setNotes(newNotes);
+      navigate("/");
     }
+  };
 
   return (
-    <section className='wrapper__action'>
-    <header className='create-note__header'>
-        <Link to='/' className='btn'><TbArrowBackUp/></Link>
-        <button className='btn lg primary' onClick={handleForm}>Сохранить</button>
-        <button onClick={handleDelete} className='btn danger'><RiDeleteBin6Line/></button>
-    </header>
-    <form className="create-note__form" onSubmit={handleForm}>
-            <input value={title} onChange={(e) => setTitle(e.target.value)} type='text' placeholder='Название' autoFocus/>
-            <textarea value={details} onChange={(e) => setDetails(e.target.value)} id="" c rows="28" placeholder='Текст'></textarea>
-        </form>
-</section>
-  )
-}
+    <section className="wrapper__action">
+      <header className="create-note__header">
+        <Link to="/" className="btn">
+          <TbArrowBackUp />
+        </Link>
+        <button className="btn lg primary" onClick={handleForm}>
+          Сохранить
+        </button>
+        <button onClick={handleDelete} className="btn danger">
+          <RiDeleteBin6Line />
+        </button>
+      </header>
+      <form className="create-note__form" onSubmit={handleForm}>
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          placeholder="Название"
+          autoFocus
+        />
+        <textarea
+          value={details}
+          onChange={(e) => setDetails(e.target.value)}
+          id=""
+          c
+          rows="28"
+          placeholder="Текст"
+        ></textarea>
+      </form>
+    </section>
+  );
+};
 
-export default EditNote
+export default EditNote;
