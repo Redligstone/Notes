@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { BiSearchAlt } from "react-icons/bi";
 import { BsPlusSquareDotted } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
@@ -20,10 +20,14 @@ const Notes = ({notes}) => {
         handleSearch()
     },[text])
 
+    
+   
+    
+
   return (
     <section className='wrapper'>
         <header className='notes__header'>
-            {!showSearch &&<h2>My notes</h2>}
+            {!showSearch &&<h2>Мои Заметки</h2>}
             {
                 showSearch && <input value={text} onChange={(e) => {setText(e.target.value); handleSearch()}} type="text" autoFocus placeholder='search'/>
             }
@@ -33,7 +37,9 @@ const Notes = ({notes}) => {
             ? <button onClick={() => setShowSearch(!showSearch)}  className='btn'>
              <BiSearchAlt/>
             </button>
-            : <button onClick={() => setShowSearch(!showSearch)}  className='btn'>
+            : <button onClick={() => {
+                setShowSearch(!showSearch)
+                setText('')}}  className='btn'>
             <AiOutlineCloseCircle/>
            </button>
             }
@@ -41,13 +47,13 @@ const Notes = ({notes}) => {
 
         <div className='notes__container'>
             {
-                filteredNotes.length === 0 && <p className='empty__notes'>No notes found</p>
+                filteredNotes.length === 0 && <p className='empty__notes'>Заметок не найдено</p>
             }
             {
                 filteredNotes.map((note) => <NoteItem key={note.id} note={note}/>)
             }
         </div>
-        <Link to='/create-note' className='btn add__btn'>
+        <Link to='/create-note'  className='btn add__btn'>
         <BsPlusSquareDotted/>
         </Link>
     </section>

@@ -7,8 +7,13 @@ import useCreateDate from '../components/useCreateDate'
 const CreateNote = ({notes, setNotes}) => {
     const [title,setTitle] = useState('')
     const [details,setDetails] = useState('')
+    const [color,setColor] = useState("#FEBE10")
+    const [showPopColors,setShowPopColors] = useState(false)
     const date = useCreateDate()
     const navigate = useNavigate()
+
+    const colors = ["#1560bd","#018749","#F08080","#C60C30","#662d91","#FEBE10"]
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,7 +24,8 @@ const CreateNote = ({notes, setNotes}) => {
                 id:uuid(),
                 title,
                 details,
-                date
+                date,
+                color
             }
 
             setNotes([note,...notes])
@@ -31,11 +37,22 @@ const CreateNote = ({notes, setNotes}) => {
     <section className='wrapper__action'>
         <header className='create-note__header'>
             <Link to='/' className='btn'><TbArrowBackUp/></Link>
-            <button className='btn lg primary' onClick={handleSubmit}>Save</button>
+            <button className='btn lg primary' onClick={handleSubmit}>Сохранить</button>
+            <div>
+                <button onClick={() => setShowPopColors(!showPopColors)} className='btn colors' style={{background:`${color}`}}></button>
+                {showPopColors &&
+                    <div className='colors__pop'>
+                    {colors.map((color,i) => (
+                        <button key={i} className='btn colors' onClick={() => {setColor(color);setShowPopColors(false) }} style={{background:`${color}`}}></button>
+                    ))}
+                </div>
+                }   
+            </div>
+           
         </header>
         <form className="create-note__form" onSubmit={handleSubmit}>
-                <input value={title} onChange={(e) => setTitle(e.target.value)} type='text' placeholder='Title' autoFocus/>
-                <textarea value={details} onChange={(e) => setDetails(e.target.value)} id="" c rows="28" placeholder='Note about...'></textarea>
+                <input value={title} onChange={(e) => setTitle(e.target.value)} type='text' placeholder='Название' autoFocus/>
+                <textarea value={details} onChange={(e) => setDetails(e.target.value)} id="" c rows="28" placeholder='Текст'></textarea>
             </form>
     </section>
   )

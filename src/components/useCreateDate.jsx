@@ -6,34 +6,34 @@ const useCreateDate = () => {
     let monthName;
 
     switch(month) {
-        case 0:monthName = 'Jan';
+        case 0:monthName = 'Янв';
         break
-        case 1:monthName = 'Feb';
+        case 1:monthName = 'Фев';
         break
-        case 2:monthName = 'Mar';
+        case 2:monthName = 'Март';
         break
-        case 3:monthName = 'Apr';
+        case 3:monthName = 'Апр';
         break
-        case 4:monthName = 'May';
+        case 4:monthName = 'Май';
         break
-        case 5:monthName = 'Jun';
+        case 5:monthName = 'Июн';
         break
-        case 6:monthName = 'Jul';
+        case 6:monthName = 'Июл';
         break
-        case 7:monthName = 'Aug';
+        case 7:monthName = 'Авг';
         break
-        case 8:monthName = 'Sept';
+        case 8:monthName = 'Сент';
         break
-        case 9:monthName = 'Oct';
+        case 9:monthName = 'Окт';
         break
-        case 10:monthName = 'Nov';
+        case 10:monthName = 'Нояб';
         break
-        case 11:monthName = 'Dec';
+        case 11:monthName = 'Дек';
         break
     }
 
     const date = `${monthName} ${dateObject.getDate()}, ${dateObject.getFullYear()} 
-    [${dateObject.getHours() < 10 ? "0" + dateObject.getHours() : dateObject.getHours()}:${dateObject.getMinutes() < 10 ? "0" + dateObject.getMinutes() : dateObject.getMinutes()}]`
+    (${dateObject.getHours() < 10 ? "0" + dateObject.getHours() : dateObject.getHours()}:${dateObject.getMinutes() < 10 ? "0" + dateObject.getMinutes() : dateObject.getMinutes()})`
     return date
 }
 

@@ -15,7 +15,7 @@
     --color-bg-black: #303030;
     
     --color-white: #fefefe;
-    --color-primary: linear-gradient(62deg, #e77736 0%, #faca50 100%);
+    --color-primary: #FEBE10;
     --color-danger: rgb(249, 84, 84);
   }
 
@@ -50,6 +50,7 @@ body {
 
 .btn.danger {
     background: var(--color-danger);
+    padding: 13px 15px;
 }
 
 .btn.primary {
@@ -101,7 +102,7 @@ h2 {
     align-items: center;
     justify-content: center;
     justify-content: space-between;
-    padding: 0 1.6rem 1.5rem;
+    /* padding: 0 1.6rem 1.5rem; */
     background: var(--color-bg-black);
     z-index: 9;
     position: fixed;
@@ -146,8 +147,8 @@ h2 {
     cursor: pointer;
     transition: all 300ms ease;
     color: var(--color-white);
-    /* color: var(--color-bg-black); */
     border-radius: 10px;
+    word-break: break-all;
 }
 
 .note:hover {
@@ -252,14 +253,23 @@ h2 {
 .create-note__form input {
     font-size: 2rem;
 }
+.colors__pop{
+  position: absolute;
+}
+.btn.colors{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
 
 
 /* MEDIA QUERIES FOR PHONES */
 @media screen and (max-width: 600px) {
 
   body{
-    background: linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgba(240,246,238,1) 67.4% );
-    background: var(--color-bg-black);
+    background: var(--color-bg-black)
   }
     .wrapper{
       width: 100vw;

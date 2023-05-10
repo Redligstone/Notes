@@ -46,12 +46,12 @@ const EditNote = ({notes, setNotes}) => {
     <section className='wrapper__action'>
     <header className='create-note__header'>
         <Link to='/' className='btn'><TbArrowBackUp/></Link>
-        <button className='btn lg primary' onClick={handleForm}>Save</button>
+        <button className='btn lg primary' onClick={handleForm}>Сохранить</button>
         <button onClick={handleDelete} className='btn danger'><RiDeleteBin6Line/></button>
     </header>
     <form className="create-note__form" onSubmit={handleForm}>
-            <input value={title} onChange={(e) => setTitle(e.target.value)} type='text' placeholder='Title' autoFocus/>
-            <textarea value={details} onChange={(e) => setDetails(e.target.value)} id="" c rows="28" placeholder='Note about...'></textarea>
+            <input value={title} onChange={(e) => setTitle(e.target.value)} type='text' placeholder='Название' autoFocus/>
+            <textarea value={details} onChange={(e) => setDetails(e.target.value)} id="" c rows="28" placeholder='Текст'></textarea>
         </form>
 </section>
   )
