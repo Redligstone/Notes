@@ -40,8 +40,8 @@ const CreateNote = ({notes, setNotes}) => {
             <button className='btn lg primary' onClick={handleSubmit}>Сохранить</button>
             <div>
                 <button onClick={() => setShowPopColors(!showPopColors)} className='btn colors' style={{background:`${color}`}}></button>
-                {showPopColors &&
-                    <div className='colors__pop'>
+                {
+                    <div className={`colors__pop${showPopColors ? ' show' : ''}`}>
                     {colors.map((color,i) => (
                         <button key={i} className='btn colors' onClick={() => {setColor(color);setShowPopColors(false) }} style={{background:`${color}`}}></button>
                     ))}
