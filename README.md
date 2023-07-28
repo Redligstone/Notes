@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## DEMO of the project
 
-https://redligstone.github.io/Notes/#/)
+https://redligstone.github.io/Notes/#/
 
 ## Available Scripts
 
