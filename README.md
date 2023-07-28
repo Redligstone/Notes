@@ -2,9 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Here you can see Demo of this project
+## DEMO of the project
 
-[In the project directory, you can run:](https://redligstone.github.io/Notes/#/)
+https://redligstone.github.io/Notes/#/)
 
 ## Available Scripts
 
